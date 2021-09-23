@@ -84,7 +84,7 @@ class _ViewFinderPageState extends State<ViewFinderPage> {
     try {
       print("llega");
       // Configure socket transports must be sepecified
-      socket = io('http://172.18.0.1:3008', <String, dynamic>{
+      socket = io('https://comicdownloader.tk', <String, dynamic>{
         'transports': ['websocket'],
         'autoConnect': true,
       });
@@ -104,7 +104,7 @@ class _ViewFinderPageState extends State<ViewFinderPage> {
           Dio dio = Dio();
           const uuid = Uuid();
           String url = await getFilePath("${uuid.v4()}.pdf");
-          String uri = 'http://172.18.0.1:3008/' + data['file'];
+          String uri = 'https://comicdownloader.tk/' + data['file'];
           print(uri);
           final response =
               await dio.download(uri, url, onReceiveProgress: (rec, total) {
